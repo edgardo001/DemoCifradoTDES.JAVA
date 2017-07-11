@@ -34,9 +34,9 @@ public class DemoCifradoTDES {
 
             TDesEncryptDecrypt aesEncryptDecrypt = new TDesEncryptDecrypt();
 
-            byte[] encrypted = aesEncryptDecrypt.Encrypt256(original.getBytes());
+            byte[] encrypted = aesEncryptDecrypt.Encrypt(original.getBytes());
             String b64Encrypted = TDesEncryptDecrypt.byteArrayToB64(encrypted);
-            String roundtrip = new String(aesEncryptDecrypt.Decrypt256(encrypted));
+            String roundtrip = new String(aesEncryptDecrypt.Decrypt(encrypted));
 
             //Display the original data and the decrypted data.
             System.out.println("Original:    " + original);
@@ -59,11 +59,11 @@ public class DemoCifradoTDES {
             TDesEncryptDecrypt aesEncryptDecrypt = new TDesEncryptDecrypt();
 
             byte[] archivoOriginal = Files.readAllBytes(rutaOriginal);
-            byte[] encrypted = aesEncryptDecrypt.Encrypt256(archivoOriginal);
+            byte[] encrypted = aesEncryptDecrypt.Encrypt(archivoOriginal);
             Files.write(rutaDestinoEnc, encrypted);
 
             byte[] archivoEncriptado = Files.readAllBytes(rutaDestinoEnc);
-            byte[] desencrypted = aesEncryptDecrypt.Decrypt256(archivoEncriptado);
+            byte[] desencrypted = aesEncryptDecrypt.Decrypt(archivoEncriptado);
             Files.write(rutaDestinoDesEnc, desencrypted);
 
             System.out.println("Archivo Encriptado en: " + rutaDestinoEnc);

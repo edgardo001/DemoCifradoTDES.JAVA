@@ -50,7 +50,7 @@ public class TDesEncryptDecrypt {
         this.TDesIV=TDesIV;
     }
 
-    public byte[] Encrypt256(byte[] src) throws Exception {
+    public byte[] Encrypt(byte[] src) throws Exception {
         try {
             SecretKeySpec key = new SecretKeySpec(TDesKey.getBytes(), "DESede");
             IvParameterSpec iv = new IvParameterSpec(TDesIV.getBytes());
@@ -65,7 +65,7 @@ public class TDesEncryptDecrypt {
         }
     }
 
-    public byte[] Decrypt256(byte[] src) throws Exception {
+    public byte[] Decrypt(byte[] src) throws Exception {
         try {
             SecretKeySpec key = new SecretKeySpec(TDesKey.getBytes(), "DESede");
             IvParameterSpec iv = new IvParameterSpec(TDesIV.getBytes());
